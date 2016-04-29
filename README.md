@@ -17,7 +17,7 @@ Introduce statistical models and related R packages to realize the models.
 
 #### Nonparametric Methods
 
-#### Analysis of Time Series
+#### Time Series Analysis
 
 #### Multivariate Analysis
 
