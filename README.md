@@ -1,5 +1,5 @@
-# StateModel
-Introduce statistical models and related R packages to realize the models.
+# Statistical Models
+Introduce statistical models and related R packages to realize the models. These are based on the graduate courses in Colorado State University. 
 
 #### Regression Models
 
