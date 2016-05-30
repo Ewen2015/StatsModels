@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Statsmodels by Ewen2015</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/Ewen2015/StatsModels">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Statsmodels</h1>
+            <h2>Introduce statistical models and related R packages to realize the models.</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/Ewen2015/StatsModels/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/Ewen2015/StatsModels/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a id="statistical-models" class="anchor" href="#statistical-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Statistical Models</h1>
+
+<ul>
+<li><p>Regression Models</p></li>
+<li><p>Generalized Regression Models</p></li>
+<li><p>Experimental Design</p></li>
+<li><p>Mixed Models</p></li>
+<li><p>Computational and Graphical Methods </p></li>
+<li><p>Methods in Simulation and Computation</p></li>
+<li><p>Survey Statistics</p></li>
+<li><p>Nonparametric Methods</p></li>
+<li><p>Time Series Analysis</p></li>
+<li><p>Multivariate Analysis</p></li>
+<li><p>Bayesian Statistics</p></li>
+<li><p>Statistical Learning and Data Mining</p></li>
+</ul>
+
+<p>The topics listed above are what I would like discuss in this article. </p>
+
+<h3>
+<a id="1-regression-models" class="anchor" href="#1-regression-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Regression Models</h3>
+
+<p>Probability and Mathematical Statistics are the foundation of Statistics, clearly. Stand behind these two basical courses are regression analysis. The importance of a good understanding of these two courses can never be overestimated, not only for statistics but machine learning. </p>
+
+<h4>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h4>
+
+<p>So, what is the start point of it? Or in orther words, what issues does regression analysis intend to solve?</p>
+
+<p>A short answer is <strong>the relationship between covariates (X) and response(Y)</strong>. </p>
+
+<p>In terms of classical statistics, regression means relationship, seriously. You can check <a href="">a sad story</a> behind the naming of regression.</p>
+
+<p>I guess this is one of the cores of all studies -- the <strong>relationship</strong>. For statistics, we intend to analyze the relationship reflected by data. Furthermore, I would like to give you a big picture of how it is organized.</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>Covariates</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>Continuous</td>
+<td>Catigorical</td>
+<td>Mixed</td>
+</tr>
+<tr>
+<td>Response</td>
+<td>Continuous</td>
+<td>Normal Regression</td>
+<td>ANOVA</td>
+<td>Multiple Linear Regression</td>
+</tr>
+<tr>
+<td>Response</td>
+<td>Catigorical</td>
+<td>Logistic Regression; Generalized Linear Model</td>
+<td>Contigency Table</td>
+<td>Generalized Linear Regression</td>
+</tr>
+</tbody>
+</table>
+
+<p>In the perspective of machine learning (statistcal learning, data mining), all above are <strong>supervised learning</strong>, for given response and predictors. In addition, similar problems have different names between classical statistics and machine learning: <strong>regression and classification</strong>. There are more efficient tools in statistical learning, in terms of ablity of prediction. However, they may lose the convenience of interpretation. </p>
+
+<p>As mentioned above, there is a <strong>trade-off</strong> between <strong>predictability and interpretability</strong>. This is one of the big difference between the original intention fo classical statistics and machine learing. The former one is created to explain the relationships, while the latter one is designed for prediction. </p>
+
+<h4>
+<a id="linear-regression-models" class="anchor" href="#linear-regression-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linear Regression Models</h4>
+
+<p>Come back to regression models, leaving aside models like <strong>Analysis of Variance (ANOVA) and contigency table of counts</strong>, what is the insight of the <strong>linear regression models</strong>? As we known, there are plenty of linear regression models - simple linear regression, multiple regression, logistic regression, Poisson regression, you name it. But what are they in common, or can we put all of them in a nutshell?</p>
+
+<p>Yes, we can. </p>
+
+<p>That's the idea fo <strong>General Linear Regression (GLR): the mean (or transformed mean) of a random variable follows a linear model</strong>. This sentence includes the three components of a GLR: </p>
+
+<table>
+<thead>
+<tr>
+<th>Link Function</th>
+<th>Random Component</th>
+<th>Systematic Component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mean (or transformed mean)</td>
+<td>a random variable</td>
+<td>a linear model</td>
+</tr>
+</tbody>
+</table>
+
+<p>The source of this idea comes from the <strong>distributions</strong> of response. As mentioned, Probability and Mathematical Statistics are the foundation of Statistics. </p>
+
+<table>
+<thead>
+<tr>
+<th>Distribution</th>
+<th>Random Component</th>
+<th>Link Function</th>
+<th>Systematic Component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td>y ~ Normal</td>
+<td>link(u) = u</td>
+<td>BX</td>
+</tr>
+<tr>
+<td>Binomial</td>
+<td>y ~ Binomial</td>
+<td>link(u) = logit(u)</td>
+<td>BX</td>
+</tr>
+<tr>
+<td>Multinomial</td>
+<td>y ~ Multinomial</td>
+<td>link(u) = logit(u)</td>
+<td>BX</td>
+</tr>
+<tr>
+<td>Poisson</td>
+<td>y ~ Poisson</td>
+<td>link(u) = log(u)</td>
+<td>BX</td>
+</tr>
+</tbody>
+</table>
+
+<p><a href="https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function">Wikipedia</a> provides more link functions of different distributions.</p>
+
+<p>The above is the big picture of generalized lieanr regression models. I did not go into details about them, but it does not mean no details in them. Actually, there are much more details, including model checking (can we simplify our model? or is our mdoel fit adequatly?), model diagnostics (outliers, systematic structure, or overdispersion), and one model in different scenario being different. We restric our discussion to a big picture of regression model, and wont cover these staff here.</p>
+
+<h4>
+<a id="other-regressiom-models" class="anchor" href="#other-regressiom-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other Regressiom Models</h4>
+
+<p><strong>Analysis of variance (ANOVA)</strong> is a collection of statistical models used to analyze the <strong>differences among group means and their associated procedures</strong> (<a href="https://en.wikipedia.org/wiki/Analysis_of_variance">Wikipedia</a>). This part is frequently used in <strong>experimental design</strong>, for whom covariates are usually categorical (factor with levels). </p>
+
+<p>A <strong>contingency table</strong> is a type of table in a matrix format that displays the (multivariate) <strong>frequency distribution</strong> of the variables. People usually use it to test <strong>homogenity and independence</strong>. A classical example is <a href="https://en.wikipedia.org/wiki/Lady_tasting_tea">Lady Tasting Tea</a>. We use <a href="https://en.wikipedia.org/wiki/Fisher%27s_exact_test">Fisher's Exact Test</a> to analyze its independence.</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Lady: Milk First</th>
+<th>Lady: Tea First</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Truth: Milk First</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Truth: Tea Firts</td>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+<p>The analysis of contingency tables depends on the probability distribution of count data, which, however, depends on the study design. We provide several types of study, but will not go into details. </p>
+
+<table>
+<thead>
+<tr>
+<th>Control on?</th>
+<th>Study Name</th>
+<th>Study Type</th>
+<th>Data Avaliable?</th>
+<th>Probability Distribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None or n</td>
+<td>Cross-Sectional</td>
+<td>Observational</td>
+<td>Cross-Sectional</td>
+<td>Poisson; Multinomial</td>
+</tr>
+<tr>
+<td>X total</td>
+<td>Cohort Study if X is self-selected</td>
+<td>Observational</td>
+<td>Prospective</td>
+<td>Indep. Multinomial across rows</td>
+</tr>
+<tr>
+<td>X total</td>
+<td>Clinical Study if X is randomly assigned</td>
+<td>Experimental</td>
+<td>Prospective</td>
+<td>Non-indep. Multinomial across columns</td>
+</tr>
+<tr>
+<td>Y total or all fixed</td>
+<td>Case Control</td>
+<td>Observational</td>
+<td>Retrospective</td>
+<td>Hypergeometric</td>
+</tr>
+</tbody>
+</table>
+
+<p>Some common tools used to test independence are Chi-Square Test, Pearson's Chi-Square test, and Likelihood Ratio Test. In addition, we can develop the two-way contingency tables to three-way one, but will not discuss it here. </p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/Ewen2015">Ewen2015</a> can be found on <a href="https://github.com/Ewen2015/StatsModels">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
