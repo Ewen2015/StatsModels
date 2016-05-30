@@ -24,7 +24,7 @@
 
 - Statistical Learning and Data Mining
 
-The topics listed above are what I would like discuss in this article. 
+I will discuss topics listed above according to my understanding. If you have any questions, feel free to leave a comment. I would like learn about your understanding. :smiley:
 
 ### 1. Regression Models
 
@@ -97,8 +97,8 @@ The analysis of contingency tables depends on the probability distribution of co
 
 Some common tools used to test independence are Chi-Square Test, Pearson's Chi-Square test, and Likelihood Ratio Test. In addition, we can develop the two-way contingency tables to three-way one, but will not discuss it here. 
 
-
-
+Fort Collins
+May 29, 2016
 
 
 
