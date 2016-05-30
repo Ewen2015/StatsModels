@@ -36,7 +36,7 @@ So, what is the start point of it? Or in orther words, what issues does regressi
 
 A short answer is **the relationship between covariates (X) and response(Y)**. 
 
-In terms of classical statistics, regression means relationship, seriously. You can check <a href="">a sad story</a> behind the naming of regression.
+In terms of classical statistics, regression means relationship, seriously. You can check <a href="http://blog.minitab.com/blog/statistics-and-quality-data-analysis/so-why-is-it-called-regression-anyway">a sad story</a> behind the naming of regression.
 
 I guess this is one of the cores of all studies -- the **relationship**. For statistics, we intend to analyze the relationship reflected by data. Furthermore, I would like to give you a big picture of how it is organized.
 
