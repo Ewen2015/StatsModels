@@ -1,0 +1,76 @@
+# Statistical Models
+
+- Regression Models
+
+- Generalized Regression Models
+
+- Experimental Design
+
+- Mixed Models
+
+- Computational and Graphical Methods 
+
+- Methods in Simulation and Computation
+
+- Survey Statistics
+
+- Nonparametric Methods
+
+- Time Series Analysis
+
+- Multivariate Analysis
+
+- Bayesian Statistics
+
+- Statistical Learning and Data Mining
+
+The topics listed above are what I would like discuss in this article. 
+
+### 1. Regression Models
+
+Probability and Mathematical Statistics are the foundation of Statistics, clearly. Stand behind these two basical courses are regression analysis. The importance of a good understanding of these two courses can never be overestimated, not only for statistics but machine learning. 
+
+So, what is the start point of it? Or in orther words, what issues does regression analysis intend to solve?
+
+A short answer is the relationship between covariates (X) and response(Y).
+
+I guess this is one of the cores of all studies -- the **relationship**. For statistics, we intend to analyze the relationship reflected by data. Furthermore, I would like to give you a big picture of how it is organized.
+
+|         |           |Covariates|||
+|---------|-----------|---|---|---|
+| | |Continuous | Catigorical | Mixed |
+|Response |Continuous |Linear Regression | ANOVA | Multiple Linear Regression|
+|Response |Catigorical|Logistic Regression; General Linear Model | Contigency Table | Generalized Linear Regression|
+
+In the perspective of machine learning (statistcal learning, data mining), all above are **supervised learning**, for given response and predictors. In addition, similar problems have different names between classical statistics and machine learning: **regression and classification**. There are more efficient tools in statistical learning, in terms of ablity of prediction. However, they may lose the convenience of interpretation. 
+
+As mentioned above, there is a **trade-off** between **predictability and interpretability**. This is one of the big difference between the original intention fo classical statistics and machine learing. The former one is created to explain the relationships, while the latter one is designed for prediction. 
+
+Come back to regression models, what is the insight of the regression models? As we known, there are plenty of regression models - simple linear regression, multiple regression, logistic regression, Poisson regression, you name it. But what are they in common, can we put all of them in a nutshell?
+
+Yes, we can. 
+
+That's the idea fo **General Linear Regression (GLR): the mean (or transformed mean) of a random variable follows a linear model**. This sentence includes the three components of a GLR: 
+
+|Link Function |Random Component |Systematic Component |
+|---|---|---|
+|mean (or transformed mean)|a random variable|a linear model|
+
+The source of this idea comes from the **distributions** of response. As mentioned, Probability and Mathematical Statistics are the foundation of Statistics. 
+
+|Distribution |Random Component | Link Function | Systematic Component |
+|---|---|---|---|
+|Normal      | $y_i ind.~ N(/sum_{j = 0}^{p}{\beta_jX_{ij}, \sigma^2})$ |
+|Binomial    | 
+|Multinomial |
+|Poisson     |
+
+
+
+
+
+
+
+
+
+
