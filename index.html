@@ -69,7 +69,7 @@
 <h3>
 <a id="1-regression-models" class="anchor" href="#1-regression-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Regression Models</h3>
 
-<p>Probability and Mathematical Statistics are the foundation of Statistics, clearly. Stand behind these two basical courses are regression analysis. The importance of a good understanding of these two courses can never be overestimated, not only for statistics but machine learning. </p>
+<p>Probabilities and mathematical statistics are the foundation of Statistics, clearly. Stand behind these two basical courses are regression analysis. The importance of a good understanding of these two courses can never be overestimated, not only for statistics but machine learning. </p>
 
 <h4>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h4>
@@ -147,7 +147,7 @@
 </tbody>
 </table>
 
-<p>The source of this idea comes from the <strong>distributions</strong> of response. As mentioned, Probability and Mathematical Statistics are the foundation of Statistics. </p>
+<p>The source of this idea comes from the <strong>distributions</strong> of response. As mentioned, probabilities and mathematical statistics are the foundation of Statistics. </p>
 
 <table>
 <thead>
@@ -188,7 +188,7 @@
 
 <p><a href="https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function">Wikipedia</a> provides more link functions of different distributions.</p>
 
-<p>The above is the big picture of generalized lieanr regression models. I did not go into details about them, but it does not mean no details in them. Actually, there are much more details, including model checking (can we simplify our model? or is our mdoel fit adequatly?), model diagnostics (outliers, systematic structure, or overdispersion), and one model in different scenario being different. We restric our discussion to a big picture of regression model, and wont cover these staff here.</p>
+<p>The above is the big picture of generalized lieanr regression models. I did not go into details in them, but it does not mean no details there. Actually, there are much more, including model checking (can we simplify our model? or is our mdoel fit adequatly?), model diagnostics (outliers, systematic structure, or overdispersion), and one model in different scenario being different. We restric our discussion to a big picture of regression model, and wont cover these staff here.</p>
 
 <h4>
 <a id="other-regressiom-models" class="anchor" href="#other-regressiom-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other Regressiom Models</h4>
@@ -265,8 +265,109 @@
 
 <p>Some common tools used to test independence are Chi-Square Test, Pearson's Chi-Square test, and Likelihood Ratio Test. In addition, we can develop the two-way contingency tables to three-way one, but will not discuss it here. </p>
 
-<p>Fort Collins
-May 29, 2016</p>
+<p>May 29, 2016</p>
+
+<p>Fort Collins</p>
+
+<hr>
+
+<h3>
+<a id="2-time-series" class="anchor" href="#2-time-series" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Time Series</h3>
+
+<p>The definition of time series is clear and intuitive, but less insight: a sequence of measurements of the same variable collected over time. Yes, we know a time series is a sequence of measurements indexed by discrete time, but can you use some statistical language tell us what does it concern about? As we underlined before, probabilities and mathematical statistics locate at important position of the whole statistics. We could and should think in a statistical way. </p>
+
+<h4>
+<a id="overview-1" class="anchor" href="#overview-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h4>
+
+<p>The core of analysis of time series is <strong>dependence</strong>. Being indexed by time is just a superficial attribute of time series, the very underlying feature of it is the dependence of that series. Instead of analyze the relationship of covariates and response, we care more about the behavior of one vairable over time. This is a take-home message of this article. </p>
+
+<h4>
+<a id="autoregressive-models" class="anchor" href="#autoregressive-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autoregressive Models</h4>
+
+<p>Before I go into detials of specific time series models, please follow me to do a thinking exercise. I have explained that the difference between time series and regression models we discussed in last section is denpendence. So, my question is that where can the dependence come from? </p>
+
+<p>It is no difficult to find one possibility -- the dependence comes from a previous measurement or p previous measurements of that variable. Yes, you have already get started your journey of time series. This case is a very common one in nature and ecomonic, like quake data and Google stock data. We call them <strong>Autoregressive Models (AR)</strong>. In general, we express this dependence as following equation:</p>
+
+<p>x_t = \phi x_{t-1} + w_t</p>
+
+<p>where {w_t} are <strong>uncorrelated</strong> random variables with <strong>mean 0 and finite variance</strong>, and called <strong>white noise</strong>. If white noises are independent, they are called iid noise, which are not required here. More details about independence and uncorrelated will be discussed later. </p>
+
+<p>According to different values of \phi, the autoregressive models (AR) have specific names.</p>
+
+<table>
+<thead>
+<tr>
+<th>\phi</th>
+<th>AM Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\phi = 0</td>
+<td>White Noise</td>
+</tr>
+<tr>
+<td>absolute \phi &lt; 1</td>
+<td>Stationary AM</td>
+</tr>
+<tr>
+<td>\phi = 1</td>
+<td>Random Walk</td>
+</tr>
+<tr>
+<td>\phi &gt; 1</td>
+<td>Explosion</td>
+</tr>
+</tbody>
+</table>
+
+<h4>
+<a id="moving-average-models" class="anchor" href="#moving-average-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Moving Average Models</h4>
+
+<p>Let's continue our thinking exercise. What if the latter measurement is uncorrelated to the former one? Where can the dependence come from? </p>
+
+<p>Inspired by the AR models, it is reasonable to guess that another possibility comes from a linear combination of q previous white noises. We call this kind of models as <strong>Moving Average (MA)</strong> models. Based on similar idea of classificatin as AR models, moving average (MA) can be grouped into several types. </p>
+
+<table>
+<thead>
+<tr>
+<th>Weights of q previous white noises</th>
+<th>MA Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Equally weighted</td>
+<td>Simple Moving Average</td>
+</tr>
+<tr>
+<td>Further data gets the less weight</td>
+<td>Weighted Moving Average</td>
+</tr>
+<tr>
+<td>Further data gets the less weight exponentially</td>
+<td>Exponential Moving Average</td>
+</tr>
+</tbody>
+</table>
+
+<p>So far we have discussed two bisic time series models: AR and MA. It is naturaly to consider combining these two models as one, then we get ARMA models. We usually write an ARMA model as ARMA(p, q), where p indicates p previous measurements and q stands for q previouse white noises. </p>
+
+<h4>
+<a id="arima-and-sarima" class="anchor" href="#arima-and-sarima" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ARIMA and SARIMA</h4>
+
+<p>Sometimes you will encounter with ARIMA(p, d, q) or more complicated SARIMA(p, d, q, P, D, Q). I indicates differencing d times, for a stationary model. S stands for seanonal model, just a bigger version of the original one. I would like to treat differencing as a kind of data preprocessing. Besides, seasonal models can be discovered in the stage of Exploratory Data Analysis (EDA), and be fulfilled by common software like R. More details will not be covered here.</p>
+
+<h4>
+<a id="autoregressive-conditional-heteroskedastic-models" class="anchor" href="#autoregressive-conditional-heteroskedastic-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autoregressive Conditional Heteroskedastic Models</h4>
+
+<p>We have find two source of dependence of time series, what else? The requirement of uncorrelated but not independent white noises foreshadows the third possibility of dependence. When variance of measurements are constant, but conditional variance are heteroskedastic, we refer it as Autoregressive Conditional Heteroskedastic Models (ARCH). More detials can be found in Wikipedia.</p>
+
+<p>May 30, 2016</p>
+
+<p>Fort Collins</p>
+
+<hr>
       </section>
 
       <footer>
