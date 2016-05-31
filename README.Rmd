@@ -97,8 +97,9 @@ The analysis of contingency tables depends on the probability distribution of co
 
 Some common tools used to test independence are Chi-Square Test, Pearson's Chi-Square test, and Likelihood Ratio Test. In addition, we can develop the two-way contingency tables to three-way one, but will not discuss it here. 
 
-Fort Collins
 May 29, 2016
+
+Fort Collins
 
 --- 
 
@@ -116,18 +117,18 @@ Before I go into detials of specific time series models, please follow me to do 
 
 It is no difficult to find one possibility -- the dependence comes from a previous measurement or p previous measurements of that variable. Yes, you have already get started your journey of time series. This case is a very common one in nature and ecomonic, like quake data and Google stock data. We call them **Autoregressive Models (AR)**. In general, we express this dependence as following equation:
 
-<img src="http://www.sciweavers.org/tex2img.php?eq=x_t%20%3D%20%5Cphi%20x_%7Bt-1%7D%20%2B%20w_t&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="x_t = \phi x_{t-1} + w_t" width="131" height="19" />
+x_t = \phi x_{t-1} + w_t
 
-where <img src="http://www.sciweavers.org/tex2img.php?eq=%5C%7Bw_t%5C%7D&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="\{w_t\}" width="47" height="18" /> are **uncorrelated** random variables with **mean 0 and finite variance**, and called **white noise**. If white noises are independent, they are called iid noise, which are not required here. More details about independence and uncorrelated will be discussed later. 
+where \{w_t\} are **uncorrelated** random variables with **mean 0 and finite variance**, and called **white noise**. If white noises are independent, they are called iid noise, which are not required here. More details about independence and uncorrelated will be discussed later. 
 
-According to different values of <img src="http://www.sciweavers.org/tex2img.php?eq=%5Cphi&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="\phi" width="17" height="19" />, the autoregressive models (AR) have specific names.
+According to different values of \phi, the autoregressive models (AR) have specific names.
 
-|<img src="http://www.sciweavers.org/tex2img.php?eq=%5Cphi&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="\phi" width="17" height="19" />|AM Type |
+|\phi|AM Type |
 |---|---|
-|=0| White Noise|
-|absolute value < 1| Stationary AM|
-|=1| Random Walk|
-|>1| Explosion|
+|\phi = 0| White Noise|
+||\phi| < 1| Stationary AM|
+|\phi = 1| Random Walk|
+|\phi > 1| Explosion|
 
 #### Moving Average Models
 
@@ -152,6 +153,7 @@ Sometimes you will encounter with ARIMA(p, d, q) or more complicated SARIMA(p, d
 We have find two source of dependence of time series, what else? The requirement of uncorrelated but not independent white noises foreshadows the third possibility of dependence. When variance of measurements are constant, but conditional variance are heteroskedastic, we refer it as Autoregressive Conditional Heteroskedastic Models (ARCH). More detials can be found in </a href="https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity">Wikipedia</a>.
 
 May 30, 2016
+
 Fort Collins
 
 ---
