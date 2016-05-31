@@ -150,7 +150,7 @@ Sometimes you will encounter with ARIMA(p, d, q) or more complicated SARIMA(p, d
 
 #### Autoregressive Conditional Heteroskedastic Models
 
-We have find two source of dependence of time series, what else? The requirement of uncorrelated but not independent white noises foreshadows the third possibility of dependence. When variance of measurements are constant, but conditional variance are heteroskedastic, we refer it as Autoregressive Conditional Heteroskedastic Models (ARCH). More detials can be found in </a href="https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity">Wikipedia</a>.
+We have find two source of dependence of time series, what else? The requirement of uncorrelated but not independent white noises foreshadows the third possibility of dependence. When variance of measurements are constant, but conditional variance are heteroskedastic, we refer it as Autoregressive Conditional Heteroskedastic Models (ARCH). More detials can be found in <a href="https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity">Wikipedia</a>.
 
 May 30, 2016
 
