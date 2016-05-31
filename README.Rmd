@@ -28,7 +28,7 @@ I will discuss topics listed above according to my understanding. If you have an
 
 ### 1. Regression Models
 
-Probability and Mathematical Statistics are the foundation of Statistics, clearly. Stand behind these two basical courses are regression analysis. The importance of a good understanding of these two courses can never be overestimated, not only for statistics but machine learning. 
+Probabilities and mathematical statistics are the foundation of Statistics, clearly. Stand behind these two basical courses are regression analysis. The importance of a good understanding of these two courses can never be overestimated, not only for statistics but machine learning. 
 
 #### Overview
 
@@ -62,7 +62,7 @@ That's the idea fo **General Linear Regression (GLR): the mean (or transformed m
 |---|---|---|
 |mean (or transformed mean)|a random variable|a linear model|
 
-The source of this idea comes from the **distributions** of response. As mentioned, Probability and Mathematical Statistics are the foundation of Statistics. 
+The source of this idea comes from the **distributions** of response. As mentioned, probabilities and mathematical statistics are the foundation of Statistics. 
 
 |Distribution |Random Component | Link Function | Systematic Component |
 |---|---|---|---|
@@ -73,7 +73,7 @@ The source of this idea comes from the **distributions** of response. As mention
 
 <a href="https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function">Wikipedia</a> provides more link functions of different distributions.
 
-The above is the big picture of generalized lieanr regression models. I did not go into details about them, but it does not mean no details in them. Actually, there are much more details, including model checking (can we simplify our model? or is our mdoel fit adequatly?), model diagnostics (outliers, systematic structure, or overdispersion), and one model in different scenario being different. We restric our discussion to a big picture of regression model, and wont cover these staff here.
+The above is the big picture of generalized lieanr regression models. I did not go into details in them, but it does not mean no details there. Actually, there are much more, including model checking (can we simplify our model? or is our mdoel fit adequatly?), model diagnostics (outliers, systematic structure, or overdispersion), and one model in different scenario being different. We restric our discussion to a big picture of regression model, and wont cover these staff here.
 
 #### Other Regressiom Models
 
@@ -99,6 +99,70 @@ Some common tools used to test independence are Chi-Square Test, Pearson's Chi-S
 
 Fort Collins
 May 29, 2016
+
+--- 
+
+### 2. Time Series
+
+The definition of time series is clear and intuitive, but less insight: a sequence of measurements of the same variable collected over time. Yes, we know a time series is a sequence of measurements indexed by discrete time, but can you use some statistical language tell us what does it concern about? As we underlined before, probabilities and mathematical statistics locate at important position of the whole statistics. We could and should think in a statistical way. 
+
+#### Overview
+
+The core of analysis of time series is **dependence**. Being indexed by time is just a superficial attribute of time series, the very underlying feature of it is the dependence of that series. Instead of analyze the relationship of covariates and response, we care more about the behavior of one vairable over time. This is a take-home message of this article. 
+
+#### Autoregressive Models
+
+Before I go into detials of specific time series models, please follow me to do a thinking exercise. I have explained that the difference between time series and regression models we discussed in last section is denpendence. So, my question is that where can the dependence come from? 
+
+It is no difficult to find one possibility -- the dependence comes from a previous measurement or p previous measurements of that variable. Yes, you have already get started your journey of time series. This case is a very common one in nature and ecomonic, like quake data and Google stock data. We call them **Autoregressive Models (AR)**. In general, we express this dependence as following equation:
+
+<img src="http://www.sciweavers.org/tex2img.php?eq=x_t%20%3D%20%5Cphi%20x_%7Bt-1%7D%20%2B%20w_t&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="x_t = \phi x_{t-1} + w_t" width="131" height="19" />
+
+where <img src="http://www.sciweavers.org/tex2img.php?eq=%5C%7Bw_t%5C%7D&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="\{w_t\}" width="47" height="18" /> are **uncorrelated** random variables with **mean 0 and finite variance**, and called **white noise**. If white noises are independent, they are called iid noise, which are not required here. More details about independence and uncorrelated will be discussed later. 
+
+According to different values of <img src="http://www.sciweavers.org/tex2img.php?eq=%5Cphi&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="\phi" width="17" height="19" />, the autoregressive models (AR) have specific names.
+
+|<img src="http://www.sciweavers.org/tex2img.php?eq=%5Cphi&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="\phi" width="17" height="19" />|AM Type |
+|---|---|
+|=0| White Noise|
+|absolute value < 1| Stationary AM|
+|=1| Random Walk|
+|>1| Explosion|
+
+#### Moving Average Models
+
+Let's continue our thinking exercise. What if the latter measurement is uncorrelated to the former one? Where can the dependence come from? 
+
+Inspired by the AR models, it is reasonable to guess that another possibility comes from a linear combination of q previous white noises. We call this kind of models as **Moving Average (MA)** models. Based on similar idea of classificatin as AR models, moving average (MA) can be grouped into several types. 
+
+|Weights of q previous white noises |MA Type |
+|---|---|
+|Equally weighted|Simple Moving Average|
+|Further data gets the less weight|Weighted Moving Average|
+|Further data gets the less weight exponentially| Exponential Moving Average|
+
+So far we have discussed two bisic time series models: AR and MA. It is naturaly to consider combining these two models as one, then we get ARMA models. We usually write an ARMA model as ARMA(p, q), where p indicates p previous measurements and q stands for q previouse white noises. 
+
+#### ARIMA and SARIMA
+
+Sometimes you will encounter with ARIMA(p, d, q) or more complicated SARIMA(p, d, q, P, D, Q). I indicates differencing d times, for a stationary model. S stands for seanonal model, just a bigger version of the original one. I would like to treat differencing as a kind of data preprocessing. Besides, seasonal models can be discovered in the stage of Exploratory Data Analysis (EDA), and be fulfilled by common software like R. More details will not be covered here.
+
+#### Autoregressive Conditional Heteroskedastic Models
+
+We have find two source of dependence of time series, what else? The requirement of uncorrelated but not independent white noises foreshadows the third possibility of dependence. When variance of measurements are constant, but conditional variance are heteroskedastic, we refer it as Autoregressive Conditional Heteroskedastic Models (ARCH). More detials can be found in </a href="https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity">Wikipedia</a>.
+
+May 30, 2016
+Fort Collins
+
+---
+
+
+
+
+
+
+
+
 
 
 
