@@ -126,7 +126,7 @@ According to different values of \phi, the autoregressive models (AR) have speci
 |\phi|AM Type |
 |---|---|
 |\phi = 0| White Noise|
-||\phi| < 1| Stationary AM|
+|absolute \phi < 1| Stationary AM|
 |\phi = 1| Random Walk|
 |\phi > 1| Explosion|
 
