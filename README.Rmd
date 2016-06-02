@@ -158,11 +158,11 @@ Fort Collins
 
 ---
 
-### 3. Experimental Design and Mixed Models
+### 3. Experimental Design
 
 If we regard the regression analysis and time series analysis as observational studies, we now will take a look at another type of study -- experiments. The difference between these two kinds of studies is pretty straightforward: people can control variables in an experiment, while only nature conditions can be used in an observational study. As a result, cause-and-effect relationship may be found through experiments, while you can only find association relationship by observational studies. 
 
-
+All experiments have thier objectives. 
 
 
 
