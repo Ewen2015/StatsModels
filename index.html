@@ -368,6 +368,155 @@
 <p>Fort Collins</p>
 
 <hr>
+
+<h3>
+<a id="3-experimental-design" class="anchor" href="#3-experimental-design" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Experimental Design</h3>
+
+<p>If we regard time series analysis as an observational study, we now will take a look at another type of study -- experiments. The difference between these two kinds of studies is pretty straightforward: people can control variables in an experiment, while only nature conditions can be used in an observational study. As a result, cause-and-effect relationship may be found through experiments, while you can only find association relationship by observational studies (<strong>Principle of Experimantal Manipulation</strong>). </p>
+
+<h5>
+<a id="questions-should-be-considered-before-designing" class="anchor" href="#questions-should-be-considered-before-designing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Questions should be considered before designing</h5>
+
+<p>All experiments have thier objectives, which direct researchers hwo to design and analyze. According to objectives of designs, most common ones are <strong>comparative design</strong>, and <strong>screening design</strong>. More details can be found <a href="http://www.itl.nist.gov/div898/handbook/pri/section3/pri31.htm">here</a>. When you have an objective, to design an effective and efficient experiment, we should be clear of the following questions:</p>
+
+<ul>
+<li>1. What population you intend to make inference to? </li>
+</ul>
+
+<p><strong>Fundamental Principle of Statistical Inference</strong> concludes that you can only make inference to the population from which you sample.</p>
+
+<ul>
+<li>2. How do you compare experiments in comparative design?</li>
+</ul>
+
+<p><strong>Principle of Comparative Experimention</strong> says that differences between responses to treatments will be less affected by uncontrolled influences than individual responses to treatments. As as consquence, you need a control treatment in you experiment.</p>
+
+<ul>
+<li>3. How do you analyze effects of different factors in a screening design?</li>
+</ul>
+
+<p>Screening designs are to identify which factors/effects are important. Comparing different treatments of different levels of on factor is conducted in a comparative design. While, factorization focuses on more than one factor and analyzes thier effects to the response variable. <strong>Factorial Principle</strong> indicates that efficiency can be gained by using factorial treatment structures. </p>
+
+<ul>
+<li>4. When you get multiple factors in a study, you need to consider how these factors are structured? </li>
+</ul>
+
+<p>You need to know whether the factors are crossed or nested. More details check <a href="http://support.minitab.com/en-us/minitab/17/topic-library/modeling-statistics/anova/anova-models/what-are-crossed-and-nested-factors/">here</a>. Besides, when time or period is considered in the model, you may think about repeated measures design, which is associated to <strong>time series analysis</strong>. If we take time series analysis as a study for dependence in one dimension, <strong>spatial analysis</strong> can be regarded as a dependence analysis in a two-dimension level. </p>
+
+<ul>
+<li>5. How do you avoid bias?</li>
+</ul>
+
+<p>One well-known way is to randomize treatments to experimental units. This is <strong>Principle of Randomization</strong>. Randomization makes the estimate of treatment effect unbiased. </p>
+
+<p>Randomization makes sure that variability in different treatments are almost same (consider unbiasedness). More efficiently, we can control variability by blocking. To some degree, we can treat block as a factor in a screening design; the difference is the block factor is of no interest in our experimental studies. When block factors are considered in our model, comparison of treatment means will be more accurate. This is the <strong>Principle of Blocking</strong>.</p>
+
+<h4>
+<a id="a-quick-reference-of-experimental-designs" class="anchor" href="#a-quick-reference-of-experimental-designs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A quick reference of experimental designs</h4>
+
+<p>Only if you have clear answers to above questions, you could go forward to designing your experiments. A quick reference is shown as following:</p>
+
+<table>
+<thead>
+<tr>
+<th>Factors</th>
+<th>Blocks</th>
+<th>Design</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One</td>
+<td>No</td>
+<td><strong>Completely Randomized Design (CRD)</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>One</td>
+<td>One</td>
+<td><strong>Randomized Complete Block Design (RCBD)</strong></td>
+<td>Mixed Model: RCBD with random blocks</td>
+</tr>
+<tr>
+<td>One</td>
+<td>Two</td>
+<td>Latin Square Design (LSD)</td>
+<td># trts = # rows = # columns</td>
+</tr>
+<tr>
+<td>One</td>
+<td>One</td>
+<td>Balanced Imcomplete Block Design (BIBD)</td>
+<td>natural block size &lt; number of treatments</td>
+</tr>
+<tr>
+<td>More than one</td>
+<td>No</td>
+<td><strong>Balanced Factorial Design (BFD)</strong></td>
+<td>Factor structures should be considered</td>
+</tr>
+<tr>
+<td>Two</td>
+<td>One</td>
+<td><strong>Split-Plot Design</strong></td>
+<td>An experiment within an experiment</td>
+</tr>
+<tr>
+<td>Two</td>
+<td>One</td>
+<td>Split-Block Design</td>
+<td>The two factors are interchangeable</td>
+</tr>
+<tr>
+<td>Three</td>
+<td>One</td>
+<td>Split-Split-Plot Design</td>
+<td>An experiment within an experiment, within an experiment</td>
+</tr>
+<tr>
+<td>Two</td>
+<td>One</td>
+<td><strong>Repeated Measures Design</strong></td>
+<td>whole plot factor = between subject factor; subplot factor = within subject factor</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Random Coefficients Models</td>
+<td>Linear regression models</td>
+</tr>
+<tr>
+<td>Two</td>
+<td>No</td>
+<td>Spatial Correlation Models</td>
+<td>Out of scope of this article</td>
+</tr>
+</tbody>
+</table>
+
+<p>I did not seperate fixed models and mixed models in this reference, because they are not independent to each other. The difference lies in ways hwo you analyze them, which will be explained below, and researchers' interests. For example, when a factor is fixed, you are probabaly interested in every specific levels of that factor; while a factor is random, you may be more interested in whether or not include that factor in the model than the levels or values of the factor.</p>
+
+<h4>
+<a id="analysis-your-models" class="anchor" href="#analysis-your-models" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analysis your models</h4>
+
+<ul>
+<li>1. Fixed Models:</li>
+</ul>
+
+<p>We can compare two groups' means with a T-test, we can test whether several groups have the same means through an Analyis of Variance (ANOVA). Furthermore, we may want to do multiple comparisos. As I only intend to provide you a intuitive idea of experimental design, I will not go into more detials about it, but you can check it on <a href="https://en.wikipedia.org/wiki/Multiple_comparisons_problem">Wikipedia</a>.</p>
+
+<ul>
+<li>2. Mixed Models:</li>
+</ul>
+
+<p>In fixed models, we are interested in group means; while in mixed models, we care more about variance. Thus, the analysis of mixed models is around the estimation of variance. Based on the same reason as above, we will not cover this part in this article. </p>
+
+<p>June 2, 2016</p>
+
+<p>Fort Collins</p>
+
+<hr>
       </section>
 
       <footer>
