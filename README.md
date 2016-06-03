@@ -88,16 +88,21 @@ A **contingency table** is a type of table in a matrix format that displays the 
 
 The analysis of contingency tables depends on the probability distribution of count data, which, however, depends on the study design. We provide several types of study, but will not go into details. 
 
+Suppose X's are covariates and Y is response. 
+
 |Control on? |Study Name |Study Type |Data Avaliable? |Probability Distribution |
 |---|---|---|---|---|
 |None or n |Cross-Sectional |Observational |Cross-Sectional |Poisson; Multinomial |
 |X total |Cohort Study if X is self-selected |Observational |Prospective |Indep. Multinomial across rows |
-|X total |Clinical Study if X is randomly assigned |Experimental |Prospective |Non-indep. Multinomial across columns |
-|Y total or all fixed |Case Control |Observational |Retrospective |Hypergeometric |
+|X total |Clinical Study if X is randomly assigned |Experimental |Prospective |Indep. Multinomial across rows |
+|Y total |Case Control |Observational |Retrospective |Non-indep. Multinomial across columns |
+|All fixed |Case Control |Observational |Retrospective |Hypergeometric |
 
 Some common tools used to test independence are Chi-Square Test, Pearson's Chi-Square test, and Likelihood Ratio Test. In addition, we can develop the two-way contingency tables to three-way one, but will not discuss it here. 
 
 May 29, 2016
+
+June 3, 2016 Revised
 
 Fort Collins
 
