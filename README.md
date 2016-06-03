@@ -166,23 +166,23 @@ If we regard time series analysis as an observational study, we now will take a 
 
 All experiments have thier objectives, which direct researchers hwo to design and analyze. According to objectives of designs, most common ones are **comparative design**, and **screening design**. More details can be found <a href="http://www.itl.nist.gov/div898/handbook/pri/section3/pri31.htm">here</a>. When you have an objective, to design an effective and efficient experiment, we should be clear of the following questions:
 
-1. What population you intend to make inference to? 
+- 1. What population you intend to make inference to? 
 
 **Fundamental Principle of Statistical Inference** concludes that you can only make inference to the population from which you sample.
 
-2. How do you compare experiments in comparative design?
+- 2. How do you compare experiments in comparative design?
 
 **Principle of Comparative Experimention** says that differences between responses to treatments will be less affected by uncontrolled influences than individual responses to treatments. As as consquence, you need a control treatment in you experiment.
 
-3. How do you analyze effects of different factors in a screening design?
+- 3. How do you analyze effects of different factors in a screening design?
 
 Screening designs are to identify which factors/effects are important. Comparing different treatments of different levels of on factor is conducted in a comparative design. While, factorization focuses on more than one factor and analyzes thier effects to the response variable. **Factorial Principle** indicates that efficiency can be gained by using factorial treatment structures. 
 
-4. When you get multiple factors in a study, you need to consider how these factors are structured? 
+- 4. When you get multiple factors in a study, you need to consider how these factors are structured? 
 
 You need to know whether the factors are crossed or nested. More details check <a href="http://support.minitab.com/en-us/minitab/17/topic-library/modeling-statistics/anova/anova-models/what-are-crossed-and-nested-factors/">here</a>. Besides, when time or period is considered in the model, you may think about repeated measures design, which is associated to **time series analysis**. If we take time series analysis as a study for dependence in one dimension, **spatial analysis** can be regarded as a dependence analysis in a two-dimension level. 
 
-5. How do you avoid bias?
+- 5. How do you avoid bias?
 
 One well-known way is to randomize treatments to experimental units. This is **Principle of Randomization**. Randomization makes the estimate of treatment effect unbiased. 
 
@@ -211,11 +211,11 @@ I did not seperate fixed models and mixed models in this reference, because they
 
 #### Analysis your models
 
-1. Fixed Models:
+- 1. Fixed Models:
 
 We can compare two groups' means with a T-test, we can test whether several groups have the same means through an Analyis of Variance (ANOVA). Furthermore, we may want to do multiple comparisos. As I only intend to provide you a intuitive idea of experimental design, I will not go into more detials about it, but you can check it on <a href="https://en.wikipedia.org/wiki/Multiple_comparisons_problem">Wikipedia</a>.
 
-2. Mixed Models:
+- 2. Mixed Models:
 
 In fixed models, we are interested in group means; while in mixed models, we care more about variance. Thus, the analysis of mixed models is around the estimation of variance. Based on the same reason as above, we will not cover this part in this article. 
 
