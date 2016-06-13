@@ -230,11 +230,27 @@ Fort Collins
 
 ---
 
+### 4. Survey Statistics
 
+A quick review:
 
+- (1) **Experimental Studies:** deliberately perturb part of population and study the effect. 
 
+- (2) **Purely Observational Studies:** observe part of population, but no control over which part. 
 
+The topic of today is kind of different from the previous two studies -- **Surveys**. (1) In surveys, avoid disturbing the population or sampled part of population. (2) In surveys, carefully control which part of the population you will study to ensure that the part is representative of the whole.  
 
+From where I stand, the best and fast way to learn survey statistics is to understand each argument in the function `svydesign` of a `R` package <a href="http://r-survey.r-forge.r-project.org/survey/html/svydesign.html">survey</a>. When it comes to survey statistics, **a complex survey design** is a common topic. However, what does `complex` really mean? We can find some inclues in the fuction `svydesgin`.
+
+```
+svydesing(ids = ~ cluster, strata = ~ strata, weights = ~ weights, data = data)
+
+ids	Formula or data frame specifying cluster ids from largest level to smallest level, ~0 or ~1 is a formula for no clusters.
+
+strata	Formula or vector specifying strata, use NULL for no strata
+
+weights	Formula or vector specifying sampling weights as an alternative to prob
+```
 
 
 
