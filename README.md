@@ -1,36 +1,25 @@
 # Statistical Models
 
-- Regression Models :smiley:
-
-- Generalized Regression Models :smiley:
-
-- Experimental Design :smiley:
-
-- Mixed Models :smiley:
-
-- Computational and Graphical Methods 
-
-- Methods in Simulation and Computation
-
-- Survey Statistics
-
-- Nonparametric Methods
-
-- Time Series Analysis :smiley:
-
-- Multivariate Analysis
-
-- Bayesian Statistics
-
-- Statistical Learning and Data Mining
+- [Regression Models](#regression-models)
+- [Time Series](#time-series)
+- [Experimental Design](#experimental-design)
+- [Survey Statistics](#survey-statistics)
+- [Generalized Regression Models](#)
+- [Mixed Models](#)
+- [Computational and Graphical Methods](#) 
+- [Methods in Simulation and Computation](#)
+- [Nonparametric Methods](#)
+- [Multivariate Analysis](#)
+- [Bayesian Statistics](#)
+- [Statistical Learning and Data Mining](#)
 
 I will discuss topics listed above according to my understanding. If you have any questions, feel free to leave a comment. I would like learn about your ideas. :smiley:
 
-### 1. Regression Models
+## Regression Models
 
 Probabilities and mathematical statistics are the foundation of Statistics, clearly. Stand behind these two basical courses are regression analysis. The importance of a good understanding of these two courses can never be overestimated, not only for statistics but machine learning. 
 
-##### Overview
+### Overview
 
 So, what is the start point of it? Or in orther words, what issues does regression analysis intend to solve?
 
@@ -50,7 +39,7 @@ In the perspective of machine learning (statistcal learning, data mining), all a
 
 As mentioned above, there is a **trade-off** between **predictability and interpretability**. This is one of the big difference between the original intention fo classical statistics and machine learing. The former one is created to explain the relationships, while the latter one is designed for prediction. 
 
-##### Linear Regression Models
+### Linear Regression Models
 
 Come back to regression models, leaving aside models like **Analysis of Variance (ANOVA) and contigency table of counts**, what is the insight of the **linear regression models**? As we known, there are plenty of linear regression models - simple linear regression, multiple regression, logistic regression, Poisson regression, you name it. But what are they in common, or can we put all of them in a nutshell?
 
@@ -66,16 +55,16 @@ The source of this idea comes from the **distributions** of response. As mention
 
 |Distribution |Random Component | Link Function | Systematic Component |
 |---|---|---|---|
-|Normal      | y ~ Normal      | link(u) = u        | BX |
-|Binomial    | y ~ Binomial    | link(u) = logit(u) | BX |
-|Multinomial | y ~ Multinomial | link(u) = logit(u) | BX |
-|Poisson     | y ~ Poisson     | link(u) = log(u)   | BX |
+|Normal      | y ~ Normal      | $link(u) = u$        | BX |
+|Binomial    | y ~ Binomial    | $link(u) = logit(u)$ | BX |
+|Multinomial | y ~ Multinomial | $link(u) = logit(u)$ | BX |
+|Poisson     | y ~ Poisson     | $link(u) = log(u)$   | BX |
 
 <a href="https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function">Wikipedia</a> provides more link functions of different distributions.
 
 The above is the big picture of generalized lieanr regression models. I did not go into details in them, but it does not mean no details there. Actually, there are much more, including model checking (can we simplify our model? or is our mdoel fit adequatly?), model diagnostics (outliers, systematic structure, or overdispersion), and one model in different scenario being different. We restric our discussion to a big picture of regression model, and wont cover these staff here.
 
-##### Other Regressiom Models
+### Other Regressiom Models
 
 **Analysis of variance (ANOVA)** is a collection of statistical models used to analyze the **differences among group means and their associated procedures** (<a href="https://en.wikipedia.org/wiki/Analysis_of_variance">Wikipedia</a>). This part is frequently used in **experimental design**, for whom covariates are usually categorical (factor with levels). 
 
@@ -108,34 +97,34 @@ Fort Collins
 
 --- 
 
-### 2. Time Series
+## Time Series
 
 The definition of time series is clear and intuitive, but less insight: a sequence of measurements of the same variable collected over time. Yes, we know a time series is a sequence of measurements indexed by discrete time, but can you use some statistical language tell us what does it concern about? As we underlined before, probabilities and mathematical statistics locate at important position of the whole statistics. We could and should think in a statistical way. 
 
-##### Overview
+### Overview
 
 The core of analysis of time series is **dependence**. Being indexed by time is just a superficial attribute of time series, the very underlying feature of it is the dependence of that series. Instead of analyze the relationship of covariates and response, we care more about the behavior of one vairable over time. This is a take-home message of this article. 
 
-##### Autoregressive Models
+### Autoregressive Models
 
 Before I go into detials of specific time series models, please follow me to do a thinking exercise. I have explained that the difference between time series and regression models we discussed in last section is denpendence. So, my question is that where can the dependence come from? 
 
 It is no difficult to find one possibility -- the dependence comes from a previous measurement or p previous measurements of that variable. Yes, you have already get started your journey of time series. This case is a very common one in nature and ecomonic, like quake data and Google stock data. We call them **Autoregressive Models (AR)**. In general, we express this dependence as following equation:
 
-x_t = \phi x_{t-1} + w_t
+$$ x_t = \phi x_{t-1} + w_t $$
 
-where \{w_t\} are **uncorrelated** random variables with **mean 0 and finite variance**, and called **white noise**. If white noises are independent, they are called iid noise, which are not required here. More details about independence and uncorrelated will be discussed later. 
+where $\{w_t\}$ are **uncorrelated** random variables with **mean 0 and finite variance**, and called **white noise**. If white noises are independent, they are called iid noise, which are not required here. More details about independence and uncorrelated will be discussed later. 
 
-According to different values of \phi, the autoregressive models (AR) have specific names.
+According to different values of $\phi$, the autoregressive models (AR) have specific names.
 
-|\phi|AM Type |
+|$\phi$|AM Type |
 |---|---|
-|\phi = 0| White Noise|
-|absolute \phi < 1| Stationary AM|
-|\phi = 1| Random Walk|
-|\phi > 1| Explosion|
+|$\phi = 0$| White Noise|
+|$\|\phi\| < 1$| Stationary AM|
+|$\phi = 1$| Random Walk|
+|$\phi > 1$| Explosion|
 
-##### Moving Average Models
+### Moving Average Models
 
 Let's continue our thinking exercise. What if the latter measurement is uncorrelated to the former one? Where can the dependence come from? 
 
@@ -147,13 +136,13 @@ Inspired by the AR models, it is reasonable to guess that another possibility co
 |Further data gets the less weight|Weighted Moving Average|
 |Further data gets the less weight exponentially| Exponential Moving Average|
 
-So far we have discussed two bisic time series models: AR and MA. It is naturaly to consider combining these two models as one, then we get ARMA models. We usually write an ARMA model as ARMA(p, q), where p indicates p previous measurements and q stands for q previouse white noises. 
+So far we have discussed two bisic time series models: AR and MA. It is naturaly to consider combining these two models as one, then we get ARMA models. We usually write an ARMA model as $ARMA(p, q)$, where p indicates p previous measurements and q stands for q previouse white noises. 
 
-##### ARIMA and SARIMA
+### ARIMA and SARIMA
 
-Sometimes you will encounter with ARIMA(p, d, q) or more complicated SARIMA(p, d, q, P, D, Q). I indicates differencing d times, for a stationary model. S stands for seanonal model, just a bigger version of the original one. I would like to treat differencing as a kind of data preprocessing. Besides, seasonal models can be discovered in the stage of Exploratory Data Analysis (EDA), and be fulfilled by common software like R. More details will not be covered here.
+Sometimes you will encounter with $ARIMA(p, d, q)$ or more complicated $SARIMA(p, d, q, P, D, Q)$. I indicates differencing d times, for a stationary model. S stands for seanonal model, just a bigger version of the original one. I would like to treat differencing as a kind of data preprocessing. Besides, seasonal models can be discovered in the stage of Exploratory Data Analysis (EDA), and be fulfilled by common software like R. More details will not be covered here.
 
-##### Autoregressive Conditional Heteroskedastic Models
+### Autoregressive Conditional Heteroskedastic Models
 
 We have find two source of dependence of time series, what else? The requirement of uncorrelated but not independent white noises foreshadows the third possibility of dependence. When variance of measurements are constant, but conditional variance are heteroskedastic, we refer it as Autoregressive Conditional Heteroskedastic Models (ARCH). More detials can be found in <a href="https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity">Wikipedia</a>.
 
@@ -163,11 +152,11 @@ Fort Collins
 
 ---
 
-### 3. Experimental Design
+## Experimental Design
 
 If we regard time series analysis as an observational study, we now will take a look at another type of study -- experiments. The difference between these two kinds of studies is pretty straightforward: people can control variables in an experiment, while only nature conditions can be used in an observational study. As a result, cause-and-effect relationship may be found through experiments, while you can only find association relationship by observational studies (**Principle of Experimantal Manipulation**). 
 
-##### Questions should be considered before designing
+### Questions should be considered before designing
 
 All experiments have thier objectives, which direct researchers hwo to design and analyze. According to objectives of designs, most common ones are **comparative design**, and **screening design**. More details can be found <a href="http://www.itl.nist.gov/div898/handbook/pri/section3/pri31.htm">here</a>. When you have an objective, to design an effective and efficient experiment, we should be clear of the following questions:
 
@@ -193,7 +182,7 @@ One well-known way is to randomize treatments to experimental units. This is **P
 
 Randomization makes sure that variability in different treatments are almost same (consider unbiasedness). More efficiently, we can control variability by blocking. To some degree, we can treat block as a factor in a screening design; the difference is the block factor is of no interest in our experimental studies. When block factors are considered in our model, comparison of treatment means will be more accurate. This is the **Principle of Blocking**.
 
-##### A quick reference of experimental designs
+### A quick reference of experimental designs
 
 Only if you have clear answers to above questions, you could go forward to designing your experiments. A quick reference is shown as following:
 
@@ -214,7 +203,7 @@ Only if you have clear answers to above questions, you could go forward to desig
 I did not seperate fixed models and mixed models in this reference, because they are not independent to each other. The difference lies in ways hwo you analyze them, which will be explained below, and researchers' interests. For example, when a factor is fixed, you are probabaly interested in every specific levels of that factor; while a factor is random, you may be more interested in whether or not include that factor in the model than the levels or values of the factor.
 
 
-##### Analysis your models
+### Analysis your models
 
 - 1. Fixed Models:
 
@@ -230,7 +219,7 @@ Fort Collins
 
 ---
 
-### 4. Survey Statistics
+## Survey Statistics
 
 A quick review:
 
@@ -251,21 +240,3 @@ strata	Formula or vector specifying strata, use NULL for no strata
 
 weights	Formula or vector specifying sampling weights as an alternative to prob
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
